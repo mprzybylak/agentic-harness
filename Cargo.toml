@@ -4,5 +4,5 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-async-openai = "0.38.2"
+async-openai = { version = "0.38.2", features = ["chat-completion"] }
 tokio = { version = "1.52.3", features = ["macros", "rt-multi-thread"] }

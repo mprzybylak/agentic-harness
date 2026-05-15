@@ -7,6 +7,8 @@ use async_openai::{
 pub async fn tell_me_a_joke(
     base_url: &str,
     api_key: &str,
+    model: &str,
+    prompt: &str,
 ) -> Result<String, Box<dyn std::error::Error>> {
     let config = OpenAIConfig::new()
         .with_api_base(base_url)
@@ -15,9 +17,9 @@ pub async fn tell_me_a_joke(
     let client = Client::with_config(config);
 
     let request = CreateChatCompletionRequestArgs::default()
-        .model("qwen2.5:7b")
+        .model(model)
         .messages([ChatCompletionRequestUserMessageArgs::default()
-            .content("Tell me a joke")
+            .content(prompt)
             .build()?
             .into()])
         .build()?;

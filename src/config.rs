@@ -13,6 +13,7 @@ pub struct Config {
 pub struct LlmConfig {
     pub base_url: String,
     pub api_key: String,
+    pub model: String,
 }
 
 impl Config {

@@ -6,3 +6,6 @@ edition = "2021"
 [dependencies]
 async-openai = { version = "0.38.2", features = ["chat-completion"] }
 tokio = { version = "1.52.3", features = ["macros", "rt-multi-thread"] }
+
+[lints.clippy]
+pedantic = "warn"

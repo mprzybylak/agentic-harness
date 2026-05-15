@@ -2,3 +2,4 @@
 # (gitignored) and put real values there. Do not commit real values here.
 [llm]
 base_url = ""
+api_key = ""

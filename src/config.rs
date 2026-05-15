@@ -12,6 +12,7 @@ pub struct Config {
 #[derive(Debug, Deserialize)]
 pub struct LlmConfig {
     pub base_url: String,
+    pub api_key: String,
 }
 
 impl Config {

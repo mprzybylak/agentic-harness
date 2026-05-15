@@ -4,10 +4,13 @@ use async_openai::{
     Client,
 };
 
-pub async fn tell_me_a_joke(base_url: &str) -> Result<String, Box<dyn std::error::Error>> {
+pub async fn tell_me_a_joke(
+    base_url: &str,
+    api_key: &str,
+) -> Result<String, Box<dyn std::error::Error>> {
     let config = OpenAIConfig::new()
         .with_api_base(base_url)
-        .with_api_key("ollama");
+        .with_api_key(api_key);
 
     let client = Client::with_config(config);
 

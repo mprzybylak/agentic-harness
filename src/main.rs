@@ -8,7 +8,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!("Hello, world!");
     println!("2 + 2 = {}", add(2, 2));
 
-    let joke = joke::tell_me_a_joke(&cfg.llm.base_url).await?;
+    let joke = joke::tell_me_a_joke(&cfg.llm.base_url, &cfg.llm.api_key).await?;
     println!("Joke: {joke}");
 
     Ok(())

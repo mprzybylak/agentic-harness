@@ -4,9 +4,9 @@ use async_openai::{
     Client,
 };
 
-pub async fn tell_me_a_joke() -> Result<String, Box<dyn std::error::Error>> {
+pub async fn tell_me_a_joke(base_url: &str) -> Result<String, Box<dyn std::error::Error>> {
     let config = OpenAIConfig::new()
-        .with_api_base("http://localhost:11434/v1")
+        .with_api_base(base_url)
         .with_api_key("ollama");
 
     let client = Client::with_config(config);

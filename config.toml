@@ -1,0 +1,4 @@
+# Placeholder configuration. Copy fields you need into config.local.toml
+# (gitignored) and put real values there. Do not commit real values here.
+[llm]
+base_url = ""

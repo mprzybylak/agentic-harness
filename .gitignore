@@ -24,3 +24,6 @@ target
 # Added by cargo
 
 /target
+
+# Local config overrides (real values; placeholders live in config.toml)
+config.local.toml

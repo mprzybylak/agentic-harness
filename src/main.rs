@@ -1,11 +1,14 @@
+mod config;
 mod joke;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let cfg = config::Config::load()?;
+
     println!("Hello, world!");
     println!("2 + 2 = {}", add(2, 2));
 
-    let joke = joke::tell_me_a_joke().await?;
+    let joke = joke::tell_me_a_joke(&cfg.llm.base_url).await?;
     println!("Joke: {joke}");
 
     Ok(())

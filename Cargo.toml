@@ -5,6 +5,8 @@ edition = "2021"
 
 [dependencies]
 async-openai = { version = "0.38.2", features = ["chat-completion"] }
+figment = { version = "0.10", features = ["toml", "env"] }
+serde = { version = "1", features = ["derive"] }
 tokio = { version = "1.52.3", features = ["macros", "rt-multi-thread"] }
 
 [lints.clippy]

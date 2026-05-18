@@ -1,20 +1,16 @@
 mod config;
 mod joke;
+mod llm;
 
 #[tokio::main]
-async fn main() -> Result<(), Box<dyn std::error::Error>> {
+async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     let cfg = config::Config::load()?;
 
     println!("Hello, world!");
     println!("2 + 2 = {}", add(2, 2));
 
-    let joke = joke::tell_me_a_joke(
-        &cfg.llm.base_url,
-        &cfg.llm.api_key,
-        &cfg.llm.model,
-        "Tell me a joke",
-    )
-    .await?;
+    let model = llm::OpenAiChatModel::new(&cfg.llm.base_url, &cfg.llm.api_key, &cfg.llm.model);
+    let joke = joke::tell_me_a_joke(&model, "Tell me a joke").await?;
     println!("Joke: {joke}");
 
     Ok(())
